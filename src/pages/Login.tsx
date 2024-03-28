@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 	},
 	passwordRecover:{
 		alignSelf:'flex-end', 
-		marginRight:50, 
+		marginRight:'13%', 
 		borderBottomWidth: 1, 
 		borderBlockColor: 'mediumslateblue'
 	},
