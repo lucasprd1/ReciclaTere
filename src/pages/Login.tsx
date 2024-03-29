@@ -1,18 +1,15 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, ButtonProps, Button, Image, Pressable, TextInput    } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import NavegatorService from '../service/NavegatorService'
+import User from '../models/User'
 
-type HomeScreenProps = {
-  navigation: StackNavigationProp<any>;
-};
-
-type LoginCredentials ={ 
-	Email: string,
-	password: string
-
+const user: User = {
+	Email: "",
+	Password: ""
 }
 
-export default function Login() {
+export default function Login(NavegatorService:NavegatorService) {
   return (
 	  <View style={styles.container}>
 		<Image style={styles.LoginImage} source={require('../assets/Img/person-placeholder.jpg')}/>

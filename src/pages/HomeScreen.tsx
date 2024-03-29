@@ -1,24 +1,14 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, ButtonProps, Button, Image, Pressable    } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import NavegatorService from '../service/NavegatorService'
 
-type RootStackParamList = {
-  Login: undefined;
-};
-
-
-type HomeScreenProps = {
-  navigation: StackNavigationProp<RootStackParamList>;
-};
-
-
-
-export default function HomeScreen(HomeScreenProps:HomeScreenProps) {
+export default function HomeScreen(NavegatorService:NavegatorService) {
   return (
     <View style={styles.base}>
         <Text style={styles.title}>Recicla Tere</Text>
         <Image style={styles.logo} source={require('../assets/Img/simbolo-de-reciclagem.png')} />
-        <Pressable onPress={() => HomeScreenProps.navigation.navigate('Login')} android_ripple={{color: 'dark-green'}}  style={styles.button}>
+        <Pressable onPress={() => NavegatorService.navigation.navigate('Login')} android_ripple={{color: 'dark-green'}}  style={styles.button}>
           <Text style={styles.buttonText}>Continuar</Text>
         </Pressable  >
     </View>
