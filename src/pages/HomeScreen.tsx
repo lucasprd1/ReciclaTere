@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, ButtonProps, Button, Image, Pressable    } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import NavegatorService from '../service/NavegatorService'
+import {NavegatorService} from '../service/NavegatorService'
 
 export default function HomeScreen(NavegatorService:NavegatorService) {
   return (
