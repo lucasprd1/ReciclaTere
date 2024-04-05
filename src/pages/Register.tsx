@@ -9,10 +9,9 @@ const user: User = {
 	Password: ""
 }
 
-export default function Login(NavegatorService:NavegatorService) {
+export default function Register(NavegatorService:NavegatorService) {
   return (
 	  <View style={styles.container}>
-		<Image style={styles.LoginImage} source={require('../assets/Img/person-placeholder.jpg')}/>
 		<View style={styles.inputConteiner}>
 			<Text style={styles.InputText}>Email:</Text>
         	<TextInput style={styles.input} onChangeText={text => {}} />
@@ -22,16 +21,20 @@ export default function Login(NavegatorService:NavegatorService) {
 			<Text style={styles.InputText}>Senha:</Text>
         	<TextInput style={styles.input} onChangeText={text => {}} />
 		</View>
-		<Pressable onPress={() => {}} style={styles.passwordRecover}  >
-          <Text style={{color:'mediumslateblue', fontWeight: 'bold'}} >Esqueci minha senha</Text>
-        </Pressable>
 		<View style={styles.space}/>
-		<Pressable onPress={() => {}} android_ripple={{color: 'dark-green'}} style={styles.button}>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </Pressable>
-		<Pressable onPress={() => {NavegatorService.navigation.navigate('Register')}} style={styles.InputCreateAcount}  >
-          <Text style={{color:'mediumslateblue', fontWeight: 'bold'}} >Não possou cadastro</Text>
-        </Pressable>
+		<View style={styles.inputConteiner}>
+			<Text style={styles.InputText}>Repita a senha:</Text>
+        	<TextInput style={styles.input} onChangeText={text => {}} />
+		</View>
+		<View style={styles.space}/>
+		<View style={styles.Btns}>
+			<Pressable onPress={() => {NavegatorService.navigation.navigate('Login')}} android_ripple={{color: 'dark-green'}} style={styles.button}>
+			<Text style={styles.buttonText}>Registrar</Text>
+			</Pressable>
+			<Pressable onPress={() => {NavegatorService.navigation.navigate('Login')}} android_ripple={{color: 'dark-green'}} style={styles.button}>
+			<Text style={styles.buttonText}>Voltar</Text>
+			</Pressable>
+		</View>
     </View>
   );
 }
@@ -40,7 +43,10 @@ const styles = StyleSheet.create({
 	container:{
 		flex: 1,
 		alignItems: 'center',
-		marginTop: 100,
+		marginTop: 150,
+	},
+	Btns:{
+		flexDirection: 'row'
 	},
 	input: {
 		borderColor: "gray",
@@ -85,16 +91,17 @@ const styles = StyleSheet.create({
 	},
     button: {
       backgroundColor: 'mediumslateblue',
-      paddingVertical: 12,
-      paddingHorizontal: 20,
       borderRadius: 5,
       width: 150,
-      elevation:0
+	  height: 30,
+	  margin: 10,
+	  elevation: 0
     },
     buttonText: {
       color: '#fff',
       fontSize: 19,
       alignSelf: 'center',
+	  padding: 5,
       fontWeight: 'bold'
     }
 });
