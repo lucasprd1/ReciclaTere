@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from './src/pages/HomeScreen';
 import Login from './src/pages/Login';
 import Register from './src/pages/Register';
+import MateriaisReciclaveis from './src/pages/MateriaisReciclaveis';
 import React from 'react';
 import {RootStackParamList} from './src/service/NavegatorService'
 
@@ -17,6 +18,7 @@ export default function AppNavigator()
         <Stack.Screen options={{headerShown:false}}  name="Home" component={HomeScreen} />
         <Stack.Screen options={{headerShown:false}}  name="Login" component={Login} />
         <Stack.Screen options={{headerShown:false}}  name="Register" component={Register} />
+        <Stack.Screen options={{headerShown:false}}  name="MateriaisReciclaveis" component={MateriaisReciclaveis} />
       </Stack.Navigator>
     </NavigationContainer>
   );

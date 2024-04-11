@@ -26,7 +26,7 @@ export default function Login(NavegatorService:NavegatorService) {
           <Text style={{color:'mediumslateblue', fontWeight: 'bold'}} >Esqueci minha senha</Text>
         </Pressable>
 		<View style={styles.space}/>
-		<Pressable onPress={() => {}} android_ripple={{color: 'dark-green'}} style={styles.button}>
+		<Pressable onPress={() => {NavegatorService.navigation.navigate('MateriaisReciclaveis')}} android_ripple={{color: 'dark-green'}} style={styles.button}>
           <Text style={styles.buttonText}>Entrar</Text>
         </Pressable>
 		<Pressable onPress={() => {NavegatorService.navigation.navigate('Register')}} style={styles.InputCreateAcount}  >
