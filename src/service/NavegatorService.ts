@@ -3,6 +3,7 @@ type RootStackParamList = {
     Home: undefined;
     Login: undefined;
     Register: undefined;
+    MateriaisReciclaveis: undefined;
   };
 type NavegatorService = {
     
