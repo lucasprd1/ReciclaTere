@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, ButtonProps, Button, Image, Pressable, TextInput    } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import {NavegatorService} from '../service/NavegatorService'
 import User from '../models/User'
 
 const user: User = {

@@ -7,6 +7,7 @@ import Register from './src/pages/Register';
 import MateriaisReciclaveis from './src/pages/MateriaisReciclaveis';
 import React from 'react';
 import {RootStackParamList} from './src/service/NavegatorService'
+import TelaConfig from './src/pages/TelaConfig';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -19,6 +20,7 @@ export default function AppNavigator()
         <Stack.Screen options={{headerShown:false}}  name="Login" component={Login} />
         <Stack.Screen options={{headerShown:false}}  name="Register" component={Register} />
         <Stack.Screen options={{headerShown:false}}  name="MateriaisReciclaveis" component={MateriaisReciclaveis} />
+        <Stack.Screen options={{headerShown:false}}  name="TelaConfig" component={TelaConfig} />
       </Stack.Navigator>
     </NavigationContainer>
   );

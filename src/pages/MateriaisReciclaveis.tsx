@@ -1,5 +1,8 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Modal, Button, FlatList, TextInput, Dimensions, ImageBackground, ScrollView, Animated, Easing } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Modal, Button, FlatList, TextInput, Dimensions, ImageBackground, ScrollView, Animated, Easing, Pressable } from 'react-native';
+import {NavegatorService} from '../service/NavegatorService'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface Material {
   id: number;
@@ -10,8 +13,8 @@ interface Material {
 }
 
 const materiaisReciclaveis: Material[] = [
-  { id: 1, nome: 'Papel', descricao: 'O papel é reciclado através de um processo que envolve a coleta, separação, trituração e transformação das fibras de celulose em uma nova folha de papel. Após a reciclagem, o papel pode ser utilizado para produzir uma variedade de produtos, incluindo papel higiênico, cadernos, embalagens e muito mais.', cor: '#f9c2ff', imagem: require('../assets/Img/papel.png') },
-  { id: 2, nome: 'Plástico', descricao: 'O plástico é reciclado através de um processo que envolve a coleta, separação por tipo e limpeza dos resíduos plásticos. Em seguida, os plásticos são derretidos e transformados em pequenos grânulos, que podem ser utilizados na fabricação de uma variedade de produtos, como garrafas, embalagens, brinquedos, entre outros.', cor: '#ffe0b2', imagem: require('../assets/Img/plastico.png') },
+  { id: 1, nome: 'Papel', descricao: 'O papel é reciclado através de um processo que envolve a coleta, separação, trituração e transformação das fibras de celulose em uma nova folha de papel. Após a reciclagem, o papel pode ser utilizado para produzir uma variedade de produtos, incluindo papel higiênico, caderno...', cor: '#f9c2ff', imagem: require('../assets/Img/papel.png') },
+  { id: 2, nome: 'Plástico', descricao: 'O plástico é reciclado através de um processo que envolve a coleta, separação por tipo e limpeza dos resíduos plásticos. Em seguida, os plásticos são derretidos e transformados em pequenos grânulos, que podem ser utilizados na fabricação de uma variedade de produtos, como garra...', cor: '#ffe0b2', imagem: require('../assets/Img/plastico.png') },
   { id: 3, nome: 'Vidro', descricao: 'O vidro é reciclado através da coleta e separação por cor. Os vidros são triturados e derretidos em altas temperaturas para formar novos produtos de vidro, como garrafas, potes, copos, e até mesmo em obras de arte e decoração.', cor: '#b2ebf2', imagem: require('../assets/Img/vidro.png') },
   { id: 4, nome: 'Metal', descricao: 'Os metais são reciclados através de um processo que envolve a coleta, separação por tipo (como alumínio e aço), limpeza e fusão dos materiais. Após o derretimento, os metais podem ser moldados em novos produtos, como latas, utensílios domésticos, peças automotivas e estruturas metálicas.', cor: '#c8e6c9', imagem: require('../assets/Img/metal.png') },
   { id: 5, nome: 'Lixo Orgânico', descricao: 'Os resíduos orgânicos são reciclados através da compostagem, um processo natural em que os materiais orgânicos, como restos de alimentos e resíduos de jardim, são decompostos por microorganismos para formar um composto orgânico rico em nutrientes, utilizado como fertilizante natural para o solo.', cor: '#dcedc8', imagem: require('../assets/Img/organico.png') },
@@ -25,7 +28,7 @@ const numColunas = 2;
 const larguraItem = (larguraTela - 40) / numColunas;
 const alturaItem = 160; 
 
-export default function App() {
+export default function App(NavegatorService:NavegatorService) {
   const [modalVisivel, setModalVisivel] = useState<boolean>(false); 
   const [materialSelecionado, setMaterialSelecionado] = useState<Material | null>(null); 
 
@@ -104,7 +107,7 @@ export default function App() {
         </View>
       </ScrollView>
       
-      {/* Modal para exibir as informações detalhadas do material selecionado */}
+      {/*Exibir as informações detalhadas do material selecionado */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -121,6 +124,11 @@ export default function App() {
           </Animated.View>
         </View>
       </Modal>
+      
+      {/* Botão de configuração */}
+      <Pressable onPress={() => NavegatorService.navigation.navigate('TelaConfig')} android_ripple={{color: 'dark-green'}}  style={styles.botaoConfig}>
+        <Icon name="cog" size={24} color="#000" />
+      </Pressable>
     </View>
   );
 }
@@ -230,5 +238,16 @@ const styles = StyleSheet.create({
     borderWidth: 0, 
     borderRadius: 10, 
     backgroundColor: '#4CAF50', 
+  },
+  botaoConfig: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    width: 50, // Definindo largura igual à altura
+    height: 50, // Definindo altura igual à largura
+    backgroundColor: '#d3d3d3',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
   },
 });

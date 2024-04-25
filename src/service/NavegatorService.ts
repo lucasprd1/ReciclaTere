@@ -4,6 +4,7 @@ type RootStackParamList = {
     Login: undefined;
     Register: undefined;
     MateriaisReciclaveis: undefined;
+    TelaConfig: undefined;
   };
 type NavegatorService = {
     
